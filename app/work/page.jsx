@@ -34,9 +34,9 @@ const projects = [
     title: "API Rick&Morty",
     description:
       "L'API Rick & Morty est un projet d'implémentation de l'API publique de la série animée, permettant de récupérer et d'afficher les personnages, épisodes et lieux de l'univers Rick & Morty. Le projet utilise Next.js et Tailwind CSS pour une interface réactive et moderne.",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
+    stack: [{ name: "React" }, { name: "Css" }],
     image: "/assets/work/R&M.png",
-    live: "",
+    live: "https://api-rick-morty-alpha.vercel.app/",
     github: "",
   },
   {
@@ -73,7 +73,7 @@ const projects = [
       "Le projet Portefolio est un site web personnel conçu pour présenter mes projets et compétences. Développé en Next.js et Tailwind CSS, ce portefolio offre une vitrine interactive et moderne de mes réalisations dans le domaine du développement web.",
     stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
     image: "/assets/work/portefolio.png",
-    live: "",
+    live: "https://laurent-portefolio.vercel.app/",
     github: "",
   },
 ];

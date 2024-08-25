@@ -2,17 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectValue,
-} from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { SelectTrigger } from "@radix-ui/react-select";
+
+import emailjs from "emailjs-com";
+import { useState } from "react";
 
 const info = [
   {
@@ -32,7 +26,66 @@ const info = [
   },
 ];
 
+// Suppression de la double déclaration du composant
 const Contact = () => {
+  const [formValues, setFormValues] = useState({
+    prenom: "",
+    nom: "",
+    email: "",
+    message: "",
+    telephone: "", // Ajout du champ téléphone
+  });
+
+  const handleChange = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      !formValues.prenom ||
+      !formValues.nom ||
+      !formValues.email ||
+      !formValues.message ||
+      !formValues.telephone
+    ) {
+      alert("Veuillez remplir tous les champs !");
+      return;
+    }
+
+    // Envoyer l'email via EmailJS
+    emailjs
+      .send(
+        "service_6xvw25k", // Remplacez par votre Service ID
+        "template_yze1ka2", // Remplacez par votre Template ID
+        formValues,
+        "D25HeF1G5eY6UTpKz" // Remplacez par votre User ID (fourni par EmailJS)
+      )
+      .then(
+        (result) => {
+          alert("Message envoyé avec succès !");
+          console.log(result.text);
+        },
+        (error) => {
+          alert("Erreur lors de l'envoi du message.");
+          console.log(error.text);
+        }
+      );
+
+    // Réinitialiser le formulaire après soumission
+    setFormValues({
+      prenom: "",
+      nom: "",
+      email: "",
+      message: "",
+      telephone: "",
+    });
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -45,7 +98,9 @@ const Contact = () => {
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* form */}
           <div className="xl:w-[54%] order-2 xl-order-1">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
               <h3 className="text-4xl text-accent">Travaillons ensemble</h3>
               <p className="text-white/60">
                 N'hésitez pas à me contacter ! Je suis motivé, curieux et
@@ -56,33 +111,51 @@ const Contact = () => {
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="text" placeholder="Prénom" />
-                <Input type="text" placeholder="Nom" />
-                <Input type="email" placeholder="Email" />
-                <Input type="telephone" placeholder="Numéro de téléphone" />
+                <Input
+                  type="text"
+                  name="prenom"
+                  placeholder="Prénom"
+                  value={formValues.prenom}
+                  onChange={handleChange}
+                  required
+                />
+                <Input
+                  type="text"
+                  name="nom"
+                  placeholder="Nom"
+                  value={formValues.nom}
+                  onChange={handleChange}
+                  required
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formValues.email}
+                  onChange={handleChange}
+                  required
+                />
+                <Input
+                  type="text"
+                  name="telephone"
+                  placeholder="Numéro de téléphone"
+                  value={formValues.telephone}
+                  onChange={handleChange}
+                />
               </div>
-              {/* select */}
-              {/* <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Choisissez un service" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Services</SelectLabel>
-                    <SelectItem value="web">Développement Web</SelectItem>
-                    <SelectItem value="mobile">Développement Mobile</SelectItem>
-                    <SelectItem value="design">Design UI/UX</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select> */}
 
-              {/* textarea */}
               <Textarea
                 className="h-[200px]"
+                name="message" // Correction ici
                 placeholder="Écrivez votre message."
+                value={formValues.message}
+                onChange={handleChange}
+                required
               />
+
               {/* submit button */}
               <Button
+                type="submit" // Ajout de type="submit"
                 className="w-full bg-accent hover:bg-accent-hover text-white py-3 rounded-lg transition-all duration-300"
                 size="md">
                 Envoyer un message
