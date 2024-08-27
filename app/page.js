@@ -37,7 +37,7 @@ const Home = () => {
                 <Button
                   onClick={() => {
                     const link = document.createElement("a");
-                    link.href = "/cv.pdf"; // Chemin vers le fichier CV
+                    link.href = "/assets/cv.pdf"; // Chemin vers le fichier CV
                     link.download = "Laurent_Mordier_CV.pdf"; // Nom du fichier à télécharger
                     link.click(); // Simuler un clic pour télécharger le fichier
                   }}
