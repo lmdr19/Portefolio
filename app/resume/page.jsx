@@ -66,8 +66,9 @@ const education = {
     "Mon parcours académique m'a permis d'acquérir des bases solides en informatique et de me familiariser avec les différents aspects du développement. Chaque étape de ma formation a contribué à élargir mes compétences, tant sur le plan théorique que pratique. À travers des projets concrets et des certifications, j'ai progressivement développé mes connaissances en développement Full Stack, tout en restant engagé dans un apprentissage constant.",
   items: [
     {
-      institution: "Université de limoges",
-      degree: "Licence Pro 3ème année Mentier de l'Informatique",
+      institution: "Université Sorbonne Paris Nord",
+      degree:
+        "BUT Informatique 2ème année pa. Réalisation d'applications : Conception, développement, validation",
       duration: "2024-Présent",
     },
     {
