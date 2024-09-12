@@ -67,8 +67,7 @@ const education = {
   items: [
     {
       institution: "Université Sorbonne Paris Nord",
-      degree:
-        "BUT Informatique 2ème année pa. Réalisation d'applications : Conception, développement, validation",
+      degree: "BUT Informatique 2ème année ",
       duration: "2024-Présent",
     },
     {
