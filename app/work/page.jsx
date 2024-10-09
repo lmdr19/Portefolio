@@ -68,6 +68,17 @@ const projects = [
   {
     num: "05",
     category: "fullstack",
+    title: "Génrateur de mot de passe",
+    description:
+      "Ce générateur de mots de passe permet de créer des mots de passe sécurisés et personnalisés. Choisissez d’inclure des majuscules, des chiffres et des symboles. La longueur peut varier de 8 à 32 caractères, garantissant ainsi un niveau de sécurité adapté à vos besoins.",
+    stack: [{ name: "Javascript" }, { name: "HTML" }, { name: "Css" }],
+    image: "/assets/work/mdp.png",
+    live: "https://lm19-password-generator.vercel.app/",
+    github: "",
+  },
+  {
+    num: "06",
+    category: "fullstack",
     title: "Portefolio",
     description:
       "Le projet Portefolio est un site web personnel conçu pour présenter mes projets et compétences. Développé en Next.js et Tailwind CSS, ce portefolio offre une vitrine interactive et moderne de mes réalisations dans le domaine du développement web.",
