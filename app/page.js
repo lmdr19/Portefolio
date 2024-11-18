@@ -32,7 +32,7 @@ const Home = () => {
                 technologies pour allier développement et gestion des
                 infrastructures. Curieux et motivé, je cherche constamment à
                 relever de nouveaux défis techniques et à évoluer dans des
-                environnements dynamiques."
+                environnements dynamiques.
               </p>
 
               {/* {Bouton et réseaux sociaux} */}
