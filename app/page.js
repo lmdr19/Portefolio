@@ -27,9 +27,14 @@ const Home = () => {
                 <span className="text-accent">Laurent Mordier</span>
               </h1>
               <p className="max-w-[500px] mt-8 mb-9 text-white/80">
-                Je suis un développeur débutant passionné par l'apprentissage et
-                l'amélioration de mes compétences en développement. J'aspire à
-                maîtriser diverses technologies et langages de programmation.
+                Développeur autodidacte, curieux d'apprendre et de progresser,
+                j'ai acquis des bases solides en systèmes et réseaux. Mon
+                objectif est de devenir DevOps, en maîtrisant les outils et
+                technologies nécessaires pour intégrer le développement et la
+                gestion des infrastructures de manière optimale. Motivé par
+                l'amélioration continue, je suis déterminé à relever les défis
+                techniques et à évoluer dans des environnements en constante
+                évolution.
               </p>
 
               {/* {Bouton et réseaux sociaux} */}
